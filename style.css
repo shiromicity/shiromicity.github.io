@@ -49,4 +49,3 @@ const countdownFunction = setInterval(function() {
     updateDigit("seconds", seconds);
     
 }, 1000); // 1000ミリ秒（1秒）ごとに実行
-
