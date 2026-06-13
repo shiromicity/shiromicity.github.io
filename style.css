@@ -1,197 +1,51 @@
-/* 全体のリセットと背景色（動画の深い紺・黒ベース） */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #000c1f; /* 動画の深いネイビー */
-    color: #ffffff;
-    text-align: center;
+// script.js - 城見市カウントダウン処理
+
+// 目標となるリリース日を設定 (2026年7月28日 15:00:00)
+const targetDate = new Date("July 28, 2026 15:00:00").getTime();
+
+// 数字を更新し、変更があった場合のみアニメーションを再生する関数
+function updateDigit(id, newValue) {
+    const element = document.getElementById(id);
+    const formattedValue = String(newValue).padStart(2, '0');
+    
+    // 現在表示されている数字と新しい数字が違う場合のみ実行
+    if (element.innerText !== formattedValue) {
+        // アニメーションをリセット
+        element.classList.remove("roll-up");
+        void element.offsetWidth; // リフローを強制してアニメーションを再起動可能にする
+        
+        // 値を更新してアニメーションクラスを付与
+        element.innerText = formattedValue;
+        element.classList.add("roll-up");
+    }
 }
 
-/* 最上部の告知バー */
-.top-bar {
-    background-color: #001a3d;
-    font-size: 11px;
-    padding: 6px 0;
-    color: #a0c0ff;
-    border-bottom: 1px solid #002d62;
-}
-
-/* カウントダウンエリア */
-.countdown-section {
-    padding: 30px 20px;
-    background: linear-gradient(to bottom, #001127, #000c1f);
-}
-
-.badge {
-    display: inline-block;
-    background-color: #3a3a3a;
-    color: #ffcc00;
-    font-size: 11px;
-    font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 3px;
-    margin-bottom: 10px;
-}
-
-.countdown-section h2 {
-    font-size: 28px;
-    margin: 5px 0;
-    letter-spacing: 2px;
-}
-
-.target-date {
-    font-size: 13px;
-    color: #8da2bb;
-    margin-bottom: 20px;
-}
-
-/* タイマーの数字ボックス */
-.timer-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.time-box {
-    background: #0d1b2e;
-    border: 1px solid #1e3a61;
-    border-radius: 6px;
-    min-width: 70px;
-    padding: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 140, 255, 0.2);
-}
-
-.time-box span {
-    font-size: 36px;
-    font-weight: bold;
-    color: #38b6ff; /* 明るいライトブルー */
-    display: block;
-    font-family: monospace;
-}
-
-.time-box p {
-    margin: 2px 0 0;
-    font-size: 11px;
-    color: #8da2bb;
-}
-
-/* COMING SOON の帯 */
-.coming-soon-bar {
-    background-color: #0044cc;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 8px 0;
-    letter-spacing: 3px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-/* メインコンテンツ（城見市タイトル） */
-.main-content {
-    padding: 50px 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left; /* 動画通りの左寄せ */
-}
-
-.title-area h1 {
-    font-size: 52px;
-    margin: 0;
-    letter-spacing: 4px;
-}
-
-.english-title {
-    font-size: 18px;
-    color: #8da2bb;
-    margin: 5px 0 20px 0;
-}
-
-.english-title span {
-    background-color: #1e3a61;
-    color: #ffffff;
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: 10px;
-}
-
-.description {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #d1e2f3;
-}
-
-/* DEV NOTES */
-.dev-notes {
-    margin-top: 40px;
-    border-left: 3px solid #008cff;
-    padding-left: 15px;
-}
-
-.dev-link {
-    font-size: 13px;
-    color: #008cff;
-    margin: 0 0 5px 0;
-}
-
-.status-text {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-}
-
-/* 市民になる セクション（最下部の黒背景） */
-.join-section {
-    background-color: #000000;
-    padding: 50px 20px;
-    border-top: 1px solid #111;
-}
-
-.join-section h2 {
-    font-size: 32px;
-    margin: 0 0 10px 0;
-}
-
-.join-section p {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 30px;
-}
-
-/* ソーシャルボタン（横並び） */
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.btn {
-    flex: 1;
-    padding: 12px 0;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    color: #fff;
-    transition: background 0.2s;
-}
-
-.roblox { background-color: #2b2b2b; }
-.discord { background-color: #5865F2; }
-.youtube { background-color: #FF0000; }
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-footer {
-    background-color: #000000;
-    padding: 20px 0;
-    font-size: 11px;
-    color: #444;
-}
+const countdownFunction = setInterval(function() {
+    // 現在の時刻を取得
+    const now = new Date().getTime();
+    
+    // 残り時間を計算 (ミリ秒)
+    const distance = targetDate - now;
+    
+    if (distance < 0) {
+        clearInterval(countdownFunction);
+        updateDigit("days", 0);
+        updateDigit("hours", 0);
+        updateDigit("minutes", 0);
+        updateDigit("seconds", 0);
+        return;
+    }
+    
+    // 日・時間・分・秒に変換
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // アニメーション付きでHTMLを更新
+    updateDigit("days", days);
+    updateDigit("hours", hours);
+    updateDigit("minutes", minutes);
+    updateDigit("seconds", seconds);
+    
+}, 1000); // 1000ミリ秒（1秒）ごとに実行
