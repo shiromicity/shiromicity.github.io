@@ -1,7 +1,7 @@
 // script.js - 城見市カウントダウン処理
 
-// 目標となるリリース日を設定 (2026年7月28日 15:00:00)
-const targetDate = new Date("July 28, 2026 15:00:00").getTime();
+// 目標となるリリース日を設定 (2026年7月20日 15:00:00)
+const targetDate = new Date("July 20, 2026 15:00:00").getTime();
 
 // 数字を更新し、変更があった場合のみアニメーションを再生する関数
 function updateDigit(id, newValue) {
