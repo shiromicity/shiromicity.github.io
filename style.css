@@ -111,8 +111,7 @@ body {
     font-weight: 900;
     padding: 10px 0;
     letter-spacing: 4px;
-    overflow: hidden;
-    white-space: nowrap;
+    text-align: center; /* 文字を真ん中に寄せる */
     box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
 }
 
@@ -263,4 +262,35 @@ footer {
     padding: 25px 0;
     font-size: 12px;
     color: #446688;
+}
+
+/* ==========================================
+   📱 スマホ用の表示調整（新しく追加）
+   ========================================== */
+@media (max-width: 480px) {
+    /* タイマー全体の隙間を狭くする */
+    .timer-container {
+        gap: 8px;
+    }
+    /* 枠のサイズを少し小さくして1列に収める */
+    .time-box {
+        min-width: 65px;
+        padding: 10px 5px;
+    }
+    /* 数字の大きさを調整 */
+    .digit {
+        font-size: 32px;
+    }
+    .digit-wrapper {
+        height: 38px;
+    }
+    /* 「城見市」のタイトルが大きすぎる場合は少し小さく */
+    .title-area h1 {
+        font-size: 40px;
+    }
+    /* ボタンが横並びだと潰れるので、スマホでは縦並びにする */
+    .social-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
