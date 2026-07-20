@@ -308,9 +308,9 @@ footer {
 
 /* 📱 スマホ用表示調整 */
 @media (max-width: 480px) {
-    .timer-container { gap: 8px; }
-    .time-box { min-width: 68px; padding: 10px 4px; }
-    .digit { font-size: 22px; transform: scaleX(1.15); }
+    .timer-container { gap: 6px; }
+    .time-box { min-width: 60px; padding: 10px 4px; }
+    .digit { font-size: 24px; }
     .title-area h1 { font-size: 32px; }
     .social-buttons { flex-direction: column; gap: 10px; }
 }
