@@ -45,7 +45,6 @@ body {
     padding: 50px 20px;
 }
 
-/* バッジ：マットなオレンジ */
 .badge {
     display: inline-block;
     background-color: rgba(224, 122, 95, 0.15);
@@ -60,9 +59,9 @@ body {
 }
 
 .countdown-section h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin: 8px 0;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: #f3f4f6;
     font-weight: 500;
 }
@@ -86,26 +85,24 @@ body {
     border: 1px solid #374151;
     border-top: 3px solid #73bda8;
     border-radius: 6px;
-    min-width: 72px;
+    min-width: 70px;
     padding: 12px 8px;
 }
 
 .digit-wrapper {
-    height: 36px;
+    height: 40px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 標準的で癖のない太字フォントにリセット */
 .digit {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 600;
     color: #f9fafb;
     display: inline-block;
-    /* 変形指定を削除して元の比率に戻しました */
 }
 
 /* スクロールアニメーション */
@@ -124,7 +121,6 @@ body {
     color: #9ca3af;
     font-weight: 500;
 }
-
 /* 3. COMING SOON の帯：落ち着いた水色ベース */
 .coming-soon-bar {
     background-color: #2a3848; /* 深みのあるスレートブルー */
