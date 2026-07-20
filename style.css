@@ -1,57 +1,62 @@
-/* 全体のリセットと背景色（落ち着いたマットな近未来） */
+/* ==========================================
+   城見市 - シック＆モダンデザイン
+   カラーパレット: ダークグレー / 水色 / オレンジ
+   ========================================== */
+
+/* 全体のリセットと背景色 */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
-    /* 背景を鮮やかな青から、深いグレーがかったネイビーへ */
-    background: radial-gradient(circle at center top, #0c121d, #05070a 90%);
-    color: #ced4da; /* 文字色を少し落ち着いたシルバーグレーに */
+    /* 落ち着いたダークチャコールグレーのグラデーション */
+    background: linear-gradient(180deg, #181c24 0%, #0f1217 100%);
+    color: #d1d5db; /* 落ち着いたライトグレー文字 */
     text-align: center;
     min-height: 100vh;
 }
 
-/* 最上部の告知バー：背景を半透明のダークグレーに */
+/* 1. 最上部の告知バー（遅延通知） */
 .top-bar {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: #262d3a; /* 水色とグレーを混ぜたシックな帯 */
     font-size: 12px;
     padding: 12px 20px;
-    color: #94a3b8; /* 落ち着いた青灰色 */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    line-height: 1.5;
-    text-shadow: none; /* ネオン感を削除 */
+    color: #e2e8f0;
+    border-bottom: 2px solid #e07a5f; /* 印象的なマットオレンジのライン */
+    line-height: 1.6;
+    letter-spacing: 0.5px;
 }
 
-/* カウントダウンエリア */
+/* 2. カウントダウンエリア */
 .countdown-section {
-    padding: 60px 20px;
+    padding: 50px 20px;
 }
 
+/* バッジ：マットなオレンジ */
 .badge {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #f8fafc;
+    background-color: rgba(224, 122, 95, 0.15);
+    color: #e07a5f;
     font-size: 11px;
-    font-weight: 500;
-    padding: 4px 16px;
-    border-radius: 20px; /* 角をさらに丸く */
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 4px;
+    border: 1px solid #e07a5f;
     margin-bottom: 16px;
-    box-shadow: none;
     letter-spacing: 1px;
 }
 
 .countdown-section h2 {
-    font-size: 24px;
-    margin: 10px 0;
-    letter-spacing: 4px;
-    color: #f8fafc;
-    font-weight: 300; /* 細めのフォントで洗練された印象に */
+    font-size: 22px;
+    margin: 8px 0;
+    letter-spacing: 3px;
+    color: #f3f4f6;
+    font-weight: 500;
 }
 
 .target-date {
-    font-size: 14px;
-    color: #64748b;
-    margin-bottom: 30px;
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 25px;
 }
 
 /* タイマーのコンテナ */
@@ -59,16 +64,16 @@ body {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .time-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px; /* あえて少し角を立たせる */
+    background: #1f2430; /* マットなカード型背景 */
+    border: 1px solid #374151; /* 控えめなグレー枠線 */
+    border-top: 3px solid #73bda8; /* 上部に上品な落ち着いた水色のアクセント */
+    border-radius: 6px;
     min-width: 70px;
     padding: 12px 8px;
-    backdrop-filter: blur(5px); /* すりガラス効果 */
 }
 
 .digit-wrapper {
@@ -80,155 +85,191 @@ body {
 }
 
 .digit {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 32px;
-    font-weight: 200; /* 極細フォントで高級感を出す */
-    color: #f8fafc;
-    text-shadow: none;
+    font-weight: 600;
+    color: #f9fafb; /* クッキリしたホワイト */
 }
 
-/* スクロールアニメーションを少しゆっくりに */
+/* スクロールアニメーション */
 .roll-up {
-    animation: rollUpAnim 0.6s ease-out;
+    animation: rollUpAnim 0.5s ease-out;
 }
 
 @keyframes rollUpAnim {
-    0% { transform: translateY(20%); opacity: 0; }
+    0% { transform: translateY(30%); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
 
 .time-box p {
-    margin: 4px 0 0;
-    font-size: 10px;
-    color: #64748b;
-    letter-spacing: 1px;
+    margin: 6px 0 0;
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 500;
 }
 
-/* COMING SOON の帯：派手なシアンからシックなダークグレーへ */
+/* 3. COMING SOON の帯：落ち着いた水色ベース */
 .coming-soon-bar {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #475569;
+    background-color: #2a3848; /* 深みのあるスレートブルー */
+    color: #8ed1fc; /* 柔らかい水色テキスト */
     font-size: 12px;
-    font-weight: 400;
-    padding: 8px 0;
-    letter-spacing: 8px;
+    font-weight: 700;
+    padding: 10px 0;
+    letter-spacing: 6px;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: none;
+    border-top: 1px solid #3b4a5a;
+    border-bottom: 1px solid #3b4a5a;
 }
 
-/* メインコンテンツ */
+/* 4. メインコンテンツ */
 .main-content {
-    padding: 80px 20px;
-    max-width: 700px;
+    padding: 70px 20px;
+    max-width: 650px;
     margin: 0 auto;
     text-align: left;
 }
 
 .title-area h1 {
-    font-size: 48px;
+    font-size: 44px;
     margin: 0;
-    letter-spacing: 8px;
-    color: #f8fafc;
-    font-weight: 100; /* かなり細く */
-    text-shadow: none;
+    letter-spacing: 6px;
+    color: #f9fafb;
+    font-weight: 700;
 }
 
 .english-title {
-    font-size: 14px;
-    color: #64748b;
+    font-size: 15px;
+    color: #8ed1fc; /* シックな水色 */
     margin: 8px 0 24px 0;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
 }
 
+/* ベータ版バッジ（オレンジ） */
 .english-title span {
-    background-color: transparent;
-    color: #94a3b8;
-    border: 1px solid #94a3b8;
+    background-color: #e07a5f;
+    color: #ffffff;
     font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 2px;
+    padding: 2px 8px;
+    border-radius: 3px;
     margin-left: 10px;
+    font-weight: 700;
 }
 
 .description {
     font-size: 14px;
-    line-height: 2;
-    color: #94a3b8;
-    font-weight: 300;
+    line-height: 1.9;
+    color: #9ca3af;
+    font-weight: 400;
 }
 
-/* DEV NOTES */
+/* 5. DEV NOTES */
 .dev-notes {
-    margin-top: 60px;
-    border-left: 1px solid #475569; /* 境界線を細く */
-    padding-left: 20px;
-    background: none;
+    margin-top: 50px;
+    border-left: 3px solid #e07a5f; /* ポイントでオレンジの縦線 */
+    padding: 12px 0 12px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0 4px 4px 0;
 }
 
 .dev-link {
     font-size: 11px;
-    color: #64748b;
-    margin-bottom: 10px;
+    color: #8ed1fc;
+    margin: 0 0 6px 0;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .status-text {
     font-size: 18px;
-    font-weight: 300;
-    color: #f8fafc;
+    font-weight: 600;
+    margin: 0;
+    color: #f3f4f6;
 }
 
-/* 市民になる セクション */
+/* 6. 市民になる セクション */
 .join-section {
-    background-color: transparent;
-    padding: 80px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #13171f; /* ボディより一段暗いグレー */
+    padding: 70px 20px;
+    border-top: 1px solid #262d3a;
 }
 
+.join-section h2 {
+    font-size: 26px;
+    margin: 0 0 8px 0;
+    color: #f9fafb;
+}
+
+.join-section p {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 35px;
+}
+
+/* ソーシャルボタン（高級感のあるマット仕上げ） */
 .social-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    max-width: 600px;
+    gap: 15px;
+    max-width: 520px;
     margin: 0 auto;
 }
 
 .btn {
     flex: 1;
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 12px 0;
-    border-radius: 2px;
-    font-size: 13px;
-    color: #94a3b8;
-    transition: all 0.4s ease;
-}
-
-.btn:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    color: #f8fafc;
-    border-color: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #d1d5db;
+    background-color: #1f2430;
+    border: 1px solid #374151;
+    transition: all 0.2s ease;
 }
 
 .sns-icon {
-    width: 16px;
-    height: 16px;
-    opacity: 0.7;
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* ホバー時にじわっと色が付く落ち着いたリアクション */
+.roblox:hover {
+    background-color: #2b3242;
+    color: #ffffff;
+    border-color: #4b5563;
+}
+
+.discord:hover {
+    background-color: #2b3848;
+    color: #8ed1fc; /* 水色アクセント */
+    border-color: #8ed1fc;
+}
+
+.youtube:hover {
+    background-color: #382828;
+    color: #f87171; /* ソフトな赤 */
+    border-color: #f87171;
 }
 
 footer {
-    padding: 40px 0;
-    font-size: 10px;
-    color: #475569;
-    letter-spacing: 2px;
+    background-color: #13171f;
+    padding: 30px 0;
+    font-size: 11px;
+    color: #6b7280;
+    border-top: 1px solid #1f2430;
 }
 
-/* 📱 スマホ用調整 */
+/* 📱 スマホ用表示調整 */
 @media (max-width: 480px) {
     .timer-container { gap: 6px; }
-    .time-box { min-width: 60px; }
+    .time-box { min-width: 60px; padding: 10px 4px; }
     .digit { font-size: 24px; }
     .title-area h1 { font-size: 32px; }
-    .social-buttons { flex-direction: column; }
+    .social-buttons { flex-direction: column; gap: 10px; }
 }
