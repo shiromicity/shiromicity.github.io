@@ -273,3 +273,28 @@ footer {
     .title-area h1 { font-size: 32px; }
     .social-buttons { flex-direction: column; gap: 10px; }
 }
+/* 右上のサイトバージョン表示 */
+.site-version {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #e07a5f; /* ポイントカラーのオレンジ */
+    background-color: rgba(15, 18, 23, 0.8); /* 背景に少し馴染むダークグレー */
+    padding: 3px 8px;
+    border: 1px solid rgba(224, 122, 95, 0.4);
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    z-index: 100; /* 常に一番上に表示 */
+}
+
+/* 📱 スマホ表示の調整 */
+@media (max-width: 480px) {
+    .site-version {
+        top: 8px;
+        right: 8px;
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
