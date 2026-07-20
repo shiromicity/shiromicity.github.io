@@ -1,296 +1,234 @@
-/* 全体のリセットと背景色（近未来的ブルー×ブラック） */
+/* 全体のリセットと背景色（落ち着いたマットな近未来） */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
-    background: radial-gradient(circle at center top, #00122e, #000000 80%);
-    color: #e0f2fe;
+    /* 背景を鮮やかな青から、深いグレーがかったネイビーへ */
+    background: radial-gradient(circle at center top, #0c121d, #05070a 90%);
+    color: #ced4da; /* 文字色を少し落ち着いたシルバーグレーに */
     text-align: center;
     min-height: 100vh;
 }
 
-/* 最上部の告知バー */
+/* 最上部の告知バー：背景を半透明のダークグレーに */
 .top-bar {
-    background-color: #000a1a;
-    font-size: 11px;
-    padding: 8px 0;
-    color: #00f0ff; /* 明るいシアン */
-    border-bottom: 1px solid #005577;
-    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
+    font-size: 12px;
+    padding: 12px 20px;
+    color: #94a3b8; /* 落ち着いた青灰色 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    line-height: 1.5;
+    text-shadow: none; /* ネオン感を削除 */
 }
 
 /* カウントダウンエリア */
 .countdown-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
 .badge {
     display: inline-block;
-    background-color: rgba(0, 240, 255, 0.1);
-    color: #00f0ff;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #f8fafc;
     font-size: 11px;
-    font-weight: bold;
-    padding: 4px 12px;
-    border-radius: 4px;
-    border: 1px solid #00f0ff;
-    margin-bottom: 12px;
-    box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+    font-weight: 500;
+    padding: 4px 16px;
+    border-radius: 20px; /* 角をさらに丸く */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 16px;
+    box-shadow: none;
+    letter-spacing: 1px;
 }
 
 .countdown-section h2 {
-    font-size: 28px;
-    margin: 5px 0;
-    letter-spacing: 2px;
-    color: #ffffff;
+    font-size: 24px;
+    margin: 10px 0;
+    letter-spacing: 4px;
+    color: #f8fafc;
+    font-weight: 300; /* 細めのフォントで洗練された印象に */
 }
 
 .target-date {
-    font-size: 13px;
-    color: #7dd3fc;
-    margin-bottom: 25px;
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 30px;
 }
 
 /* タイマーのコンテナ */
 .timer-container {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 12px;
+    margin-top: 20px;
 }
 
 .time-box {
-    background: rgba(0, 10, 25, 0.8);
-    border: 1px solid #00aaff;
-    border-radius: 8px;
-    min-width: 75px;
-    padding: 15px 10px;
-    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3), inset 0 0 10px rgba(0, 170, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px; /* あえて少し角を立たせる */
+    min-width: 70px;
+    padding: 12px 8px;
+    backdrop-filter: blur(5px); /* すりガラス効果 */
 }
 
-/* デジタルスクロール用ラッパー */
 .digit-wrapper {
-    height: 48px;
-    overflow: hidden; /* 枠外にはみ出た文字を隠す */
+    height: 40px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 丸みを帯びたカウントダウンフォント */
 .digit {
-    font-family: 'Nunito', sans-serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: #00f0ff;
-    text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
-    display: inline-block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 32px;
+    font-weight: 200; /* 極細フォントで高級感を出す */
+    color: #f8fafc;
+    text-shadow: none;
 }
 
-/* Javascriptで付与されるスクロールアニメーション */
+/* スクロールアニメーションを少しゆっくりに */
 .roll-up {
-    animation: rollUpAnim 0.4s cubic-bezier(0.68, -0.2, 0.265, 1.2); /* 止まって動く弾むような動き */
+    animation: rollUpAnim 0.6s ease-out;
 }
 
 @keyframes rollUpAnim {
-    0% { transform: translateY(100%); opacity: 0; }
+    0% { transform: translateY(20%); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
 
 .time-box p {
-    margin: 8px 0 0;
-    font-size: 12px;
-    color: #7dd3fc;
-    font-weight: bold;
+    margin: 4px 0 0;
+    font-size: 10px;
+    color: #64748b;
+    letter-spacing: 1px;
 }
 
-/* COMING SOON の帯 */
+/* COMING SOON の帯：派手なシアンからシックなダークグレーへ */
 .coming-soon-bar {
-    background-color: #00f0ff;
-    color: #000000;
-    font-size: 14px;
-    font-weight: 900;
-    padding: 10px 0;
-    letter-spacing: 4px;
-    text-align: center; /* 文字を真ん中に寄せる */
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #475569;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 0;
+    letter-spacing: 8px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: none;
 }
 
 /* メインコンテンツ */
 .main-content {
-    padding: 60px 20px;
-    max-width: 600px;
+    padding: 80px 20px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: left;
 }
 
 .title-area h1 {
-    font-size: 56px;
+    font-size: 48px;
     margin: 0;
-    letter-spacing: 4px;
-    color: #ffffff;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    letter-spacing: 8px;
+    color: #f8fafc;
+    font-weight: 100; /* かなり細く */
+    text-shadow: none;
 }
 
 .english-title {
-    font-size: 18px;
-    color: #7dd3fc;
-    margin: 5px 0 20px 0;
-    font-weight: bold;
+    font-size: 14px;
+    color: #64748b;
+    margin: 8px 0 24px 0;
+    letter-spacing: 2px;
 }
 
 .english-title span {
-    background-color: #00f0ff;
-    color: #000000;
-    font-size: 12px;
-    padding: 3px 8px;
-    border-radius: 4px;
+    background-color: transparent;
+    color: #94a3b8;
+    border: 1px solid #94a3b8;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
     margin-left: 10px;
-    font-weight: 900;
 }
 
 .description {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #bae6fd;
+    font-size: 14px;
+    line-height: 2;
+    color: #94a3b8;
+    font-weight: 300;
 }
 
 /* DEV NOTES */
 .dev-notes {
-    margin-top: 45px;
-    border-left: 4px solid #00f0ff;
-    padding-left: 15px;
-    background: linear-gradient(90deg, rgba(0, 240, 255, 0.1) 0%, transparent 100%);
-    padding: 15px;
-    border-radius: 0 8px 8px 0;
+    margin-top: 60px;
+    border-left: 1px solid #475569; /* 境界線を細く */
+    padding-left: 20px;
+    background: none;
 }
 
 .dev-link {
-    font-size: 12px;
-    color: #00f0ff;
-    margin: 0 0 8px 0;
-    letter-spacing: 1px;
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 10px;
 }
 
 .status-text {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 0;
-    color: #ffffff;
+    font-size: 18px;
+    font-weight: 300;
+    color: #f8fafc;
 }
 
 /* 市民になる セクション */
 .join-section {
-    background-color: #000000;
-    padding: 60px 20px;
-    border-top: 1px solid #002244;
+    background-color: transparent;
+    padding: 80px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.join-section h2 {
-    font-size: 32px;
-    margin: 0 0 10px 0;
-    color: #ffffff;
-}
-
-.join-section p {
-    font-size: 15px;
-    color: #88aadd;
-    margin-bottom: 35px;
-}
-
-/* ソーシャルボタン */
 .social-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    max-width: 480px;
+    gap: 20px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .btn {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* 文字とロゴの隙間 */
-    padding: 14px 0;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
-    color: #fff;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+    border-radius: 2px;
+    font-size: 13px;
+    color: #94a3b8;
+    transition: all 0.4s ease;
 }
 
-/* SNSロゴサイズ */
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #f8fafc;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
 .sns-icon {
-    width: 20px;
-    height: 20px;
-}
-
-/* ボタンの配色とホバー時ネオンエフェクト */
-.roblox { 
-    background-color: #111111;
-    border-color: #444;
-}
-.roblox:hover {
-    background-color: #222;
-    border-color: #fff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-.discord { 
-    background-color: #1a1f33; 
-    border-color: #5865F2;
-}
-.discord:hover {
-    background-color: #5865F2;
-    box-shadow: 0 0 15px rgba(88, 101, 242, 0.6);
-}
-
-.youtube { 
-    background-color: #331111; 
-    border-color: #FF0000;
-}
-.youtube:hover {
-    background-color: #FF0000;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
 }
 
 footer {
-    background-color: #000000;
-    padding: 25px 0;
-    font-size: 12px;
-    color: #446688;
+    padding: 40px 0;
+    font-size: 10px;
+    color: #475569;
+    letter-spacing: 2px;
 }
 
-/* ==========================================
-   📱 スマホ用の表示調整（新しく追加）
-   ========================================== */
+/* 📱 スマホ用調整 */
 @media (max-width: 480px) {
-    /* タイマー全体の隙間を狭くする */
-    .timer-container {
-        gap: 8px;
-    }
-    /* 枠のサイズを少し小さくして1列に収める */
-    .time-box {
-        min-width: 65px;
-        padding: 10px 5px;
-    }
-    /* 数字の大きさを調整 */
-    .digit {
-        font-size: 32px;
-    }
-    .digit-wrapper {
-        height: 38px;
-    }
-    /* 「城見市」のタイトルが大きすぎる場合は少し小さく */
-    .title-area h1 {
-        font-size: 40px;
-    }
-    /* ボタンが横並びだと潰れるので、スマホでは縦並びにする */
-    .social-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
+    .timer-container { gap: 6px; }
+    .time-box { min-width: 60px; }
+    .digit { font-size: 24px; }
+    .title-area h1 { font-size: 32px; }
+    .social-buttons { flex-direction: column; }
 }
