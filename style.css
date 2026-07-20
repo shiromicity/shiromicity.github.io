@@ -296,12 +296,11 @@ footer {
     z-index: 100; /* 常に一番上に表示 */
 }
 
-/* 📱 スマホ表示の調整 */
+/* 📱 スマホ用表示調整 */
 @media (max-width: 480px) {
-    .site-version {
-        top: 8px;
-        right: 8px;
-        font-size: 10px;
-        padding: 2px 6px;
-    }
+    .timer-container { gap: 8px; }
+    .time-box { min-width: 68px; padding: 10px 4px; }
+    .digit { font-size: 22px; transform: scaleX(1.15); }
+    .title-area h1 { font-size: 32px; }
+    .social-buttons { flex-direction: column; gap: 10px; }
 }
